@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kyran Hannah - Software developer, Auckland</title>
+<meta name="description" content="Portfolio of Kyran Hannah: games, mobile apps and web apps built with C#, .NET and Unity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d2b2e;--bg2:#14393d;--ink:#eef4ef;--dim:#9fbdb8;--cyan:#8cf0c0;--pink:#ff6f59;--amber:#ffd166;--line:rgba(238,244,239,.18);--d:'Bricolage Grotesque','Arial Black',sans-serif;--b:'Outfit',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:300 1.08rem/1.65 var(--b);overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.1rem clamp(1rem,4vw,3rem);mix-blend-mode:difference}
+nav b{font:800 .95rem var(--d)}
+nav div{display:flex;gap:1.6rem}
+nav a{text-decoration:none;font-weight:600;position:relative}
+nav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .35s}
+nav a:hover::after{transform:scaleX(1);transform-origin:left}
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;align-content:center;padding:6rem clamp(1rem,4vw,3rem) 4rem;overflow:hidden;background:radial-gradient(120% 90% at 80% 10%,var(--bg2),var(--bg) 60%);cursor:crosshair}
+#sky{position:absolute;inset:0;width:100%;height:100%}
+.hero>*:not(canvas){position:relative;pointer-events:none}
+.hero a,.hero button{pointer-events:auto}
+h1{font:800 clamp(2.8rem,10.5vw,9.5rem)/.95 var(--d);letter-spacing:-.035em}
+h1 .w{display:block;overflow:hidden;padding-bottom:.06em}
+h1 .c{display:inline-block;transform:translateY(110%) rotate(8deg);animation:up .9s cubic-bezier(.2,.9,.2,1) forwards;animation-delay:calc(var(--i)*55ms + .2s)}
+h1 .w:nth-child(2) .c{color:transparent;-webkit-text-stroke:2px var(--cyan)}
+@keyframes up{to{transform:none}}
+.sub{max-width:34ch;margin-top:1.8rem;font-size:clamp(1.15rem,2.2vw,1.5rem);opacity:0;animation:fade 1s 1.2s forwards}
+.cta{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;opacity:0;animation:fade 1s 1.4s forwards}
+@keyframes fade{to{opacity:1}}
+.btn{display:inline-block;padding:.85rem 1.6rem;border-radius:99px;text-decoration:none;font-weight:600;border:2px solid var(--cyan);transition:background .3s,color .3s,transform .3s}
+.btn.f{background:var(--cyan);color:var(--bg)}
+.btn:hover{background:var(--pink);border-color:var(--pink);color:var(--ink);transform:translateY(-3px) rotate(-1.5deg)}
+.hud{position:absolute!important;right:clamp(1rem,4vw,3rem);bottom:1.6rem;text-align:right;font-size:.95rem;color:var(--dim);opacity:0;animation:fade 1s 1.8s forwards}
+.hud strong{display:block;font:800 2.4rem var(--d);color:var(--amber);line-height:1}
+/* sections */
+section:not(.hero){padding:clamp(4rem,10vw,8rem) clamp(1rem,4vw,3rem);max-width:1200px;margin:auto}
+h2{font:800 clamp(2rem,5vw,3.6rem)/1.05 var(--d);letter-spacing:-.03em;margin-bottom:2.5rem;clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.7,0,.2,1)}
+h2.in{clip-path:inset(0 0 0 0)}
+.mq{overflow:hidden;border-block:1px solid var(--line);padding:1.1rem 0;background:var(--bg2);transform:rotate(-1.4deg) scale(1.03);margin:1rem 0}
+.mq div{display:flex;gap:3rem;width:max-content;animation:slide 32s linear infinite;font:800 1.4rem var(--d)}
+.mq span:nth-child(even){color:var(--pink)}
+.mq:hover div{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* work */
+.row{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;width:100%;padding:1.6rem 0;background:none;border:0;border-top:1px solid var(--line);color:inherit;font:inherit;text-align:left;cursor:pointer;position:relative;isolation:isolate;transition:padding .4s}
+.row::before{content:"";position:absolute;inset:0 -1rem;background:linear-gradient(90deg,var(--pink),var(--amber));transform:scaleY(0);transform-origin:bottom;transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1;border-radius:6px}
+.row:hover::before,.row:focus-visible::before{transform:scaleY(1)}
+.row:hover,.row:focus-visible{padding-left:1.4rem;color:var(--bg)}
+.row h3{font:800 clamp(1.4rem,3.6vw,2.4rem)/1.1 var(--d);letter-spacing:-.02em}
+.row p{opacity:.85}
+.row i{font:normal 800 1.8rem var(--d);transition:transform .4s}
+.row:hover i{transform:rotate(90deg) scale(1.2)}
+.work{border-bottom:1px solid var(--line)}
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem}
+.about p{max-width:60ch;margin-bottom:1.1rem}
+.tl{list-style:none;padding:0 0 0 1.6rem;border-left:2px solid var(--line);position:relative}
+.tl li{position:relative;padding-bottom:1.8rem}
+.tl li::before{content:"";position:absolute;left:calc(-1.6rem - 7px);top:.5rem;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 var(--cyan);animation:ping 2.4s infinite}
+.tl li:last-child::before{background:var(--pink);box-shadow:0 0 0 0 var(--pink)}
+@keyframes ping{70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.tl b{display:block;font:600 1.05rem var(--d)}
+.tl span{color:var(--dim)}
+/* contact */
+.contact{text-align:center}
+.contact h2{margin-inline:auto}
+.big{display:block;font:800 clamp(1.5rem,5.5vw,4rem) var(--d);text-decoration:none;letter-spacing:-.03em;padding:.4rem 0;transition:letter-spacing .5s,color .3s}
+.big:hover{letter-spacing:.02em;color:var(--pink)}
+footer{padding:2rem;text-align:center;color:var(--dim);font-size:.9rem}
+/* panel */
+.veil{position:fixed;inset:0;background:rgba(6,28,31,.78);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .4s;z-index:30}
+.panel{position:fixed;top:0;right:0;height:100%;width:min(560px,100%);background:var(--bg2);border-left:3px solid var(--cyan);padding:4rem 2rem 2rem;overflow:auto;transform:translateX(105%);transition:transform .55s cubic-bezier(.7,0,.2,1);z-index:31}
+body.open .veil{opacity:1;pointer-events:auto}
+body.open .panel{transform:none}
+.panel h3{font:800 2rem/1.1 var(--d);margin-bottom:1rem}
+.panel ul{padding-left:1.1rem;margin:1.2rem 0}
+.panel li{margin-bottom:.5rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.4rem 0}
+.chips span{border:1px solid var(--cyan);color:var(--cyan);border-radius:99px;padding:.15rem .8rem;font-size:.9rem}
+.x{position:absolute;top:1rem;right:1rem;background:none;border:2px solid var(--ink);color:var(--ink);border-radius:50%;width:2.6rem;height:2.6rem;font-size:1.3rem;cursor:pointer;transition:transform .4s,background .3s}
+.x:hover{transform:rotate(180deg);background:var(--pink);border-color:var(--pink)}
+.panel .btn{margin:0 .5rem .5rem 0}
+@media(max-width:760px){.about{grid-template-columns:1fr}nav div{gap:1rem}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}h2{clip-path:none}.mq div{animation:none}}
+</style>
+</head>
+<body>
+<nav><b>KH</b><div><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
+
+<header class="hero" id="top">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <h1 aria-label="Kyran Hannah"><span class="w" id="n1"></span><span class="w" id="n2"></span></h1>
+  <p class="sub">Software developer in Auckland. I build games, mobile apps and web tools.</p>
+  <div class="cta"><a class="btn f" href="#work">See my work</a><a class="btn" href="#contact">Get in touch</a></div>
+  <div class="hud" aria-hidden="true"><strong id="score">0</strong>asteroids cleared<br>Aim with your mouse. Click or hold to fire.</div>
+</header>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="work">
+  <h2>Selected work</h2>
+  <div class="work" id="list"></div>
+</section>
+
+<section id="about" class="about">
+  <div>
+    <h2>About me</h2>
+    <p>I'm a software developer based in Auckland, New Zealand. I like building things people can touch, whether that's a ship that handles well in a Unity game or a cross-platform app with a clean service layer behind it.</p>
+    <p>I've led student teams through Agile sprints, kept risk registers, handled change requests and shipped working software on a deadline. Outside of code you'll find me snowboarding, gaming, cooking or under the bonnet of a car.</p>
+  </div>
+  <ol class="tl" aria-label="Education">
+    <li><b>Level 5 Diploma</b><span>Web Development &amp; Design, Techtorium</span></li>
+    <li><b>Level 6, graduating December 2026</b><span>Software Development, Techtorium</span></li>
+  </ol>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Let's build something</h2>
+  <a class="big" href="mailto:kyranhannah@gmail.com">kyranhannah@gmail.com</a>
+  <a class="big" href="https://github.com/Kyran4" target="_blank" rel="noopener">GitHub</a>
+  <a class="big" href="https://www.linkedin.com/in/kyran-hannah-217003382/" target="_blank" rel="noopener">LinkedIn</a>
+</section>
+<footer>© <span id="yr"></span> Kyran Hannah</footer>
+
+<div class="veil" id="veil"></div>
+<aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="pt" inert>
+  <button class="x" id="close" aria-label="Close project details">x</button>
+  <div id="pbody"></div>
+</aside>
+
+<script>
+// ---------- PROJECTS ----------
+const GH='Kyran4';
+const projects=[
+ {t:'VehicleManager',s:'Technical assignment for CreditWorks',d:'A web app for managing vehicles and weight categories, built as a take-home assignment for CreditWorks.',
+  b:['C# with ASP.NET Core and Razor Pages','Entity Framework Core with SQL Server'],k:['C#','ASP.NET Core','EF Core','SQL Server'],r:[['View repo','VehicleManager']]},
+ {t:'CampusPulse',s:'Social app for a university, team lead',d:'Think Instagram for a university: a .NET MAUI app with a local API behind it, built by a team I led over two Agile sprints.',
+  b:['Role-based auth with hashed passwords (BCrypt)','Feed with posts, comments and reactions','Events with registration and capacity rules','Reporting, moderation and an admin dashboard','Security risk register covering IDOR, SQL injection and token storage'],
+  k:['.NET MAUI','MVVM','ASP.NET Core','EF Core','SQLite'],r:[['App repo','CampusPulse'],['API repo','CampusPulse.API']]},
+ {t:'Recipe App',s:'Django recipe sharing platform',d:'A Django app for sharing and organising recipes, built for coursework and still one of my favourites.',
+  b:['Recipe sharing and organising','Server-rendered pages with Django templates'],k:['Python','Django','HTML'],r:[['View repo','Week7-RecipeApp-']]},
+ {t:'TechWebsite',s:'Django storefront, a PB Tech lookalike',d:'A Django app modelled on PB Tech, built for fun. The styling needs optimising and fixing it is on my list.',
+  b:['Django backend','Built for fun outside of coursework'],k:['Python','Django','CSS'],r:[['View repo','TechWebsite']]},
+ {t:'Asteroid Blast',s:'2D space game in Unity',d:'A complete 2D Unity game, from design and animation to scripting, sound and effects.',
+  b:['Rigidbody2D ship physics with thrusters and smooth rotation','Asteroid spawner plus a chase variant with different behaviour','Time-freeze power-up, pickups, score, lives and respawn','Event-driven architecture linking gameplay, UI, audio and VFX','Menus built with UI Toolkit; multiple levels and scenes'],
+  k:['Unity','C#','Input System','UI Toolkit']}
+];
+const skills=['C#','.NET MAUI','ASP.NET Core','EF Core','SQL Server','SQLite','Unity','Python','Django','Razor Pages','Git','Azure Boards'];
+// --------------------------------------------
+const $=id=>document.getElementById(id);
+$('yr').textContent=new Date().getFullYear();
+// name letters
+[['n1','Kyran'],['n2','Hannah']].forEach(([id,txt],r)=>{$(id).innerHTML=[...txt].map((c,i)=>`<span class="c" style="--i:${i+r*5}" aria-hidden="true">${c}</span>`).join('')});
+$('mq').innerHTML=[...skills,...skills].map(s=>`<span>${s}</span>`).join('');
+$('list').innerHTML=projects.map((p,i)=>`<button class="row" data-i="${i}"><div><h3>${p.t}</h3><p>${p.s}</p></div><i aria-hidden="true">+</i></button>`).join('');
+// panel
+let last;
+const open=i=>{const p=projects[i];last=document.activeElement;
+ $('pbody').innerHTML=`<h3 id="pt">${p.t}</h3><p>${p.d}</p><ul>${p.b.map(x=>`<li>${x}</li>`).join('')}</ul><div class="chips">${p.k.map(x=>`<span>${x}</span>`).join('')}</div>${(p.r||[]).map(([n,x])=>`<a class="btn f" href="https://github.com/${GH}/${x}" target="_blank" rel="noopener">${n}</a>`).join('')}`;
+ $('panel').inert=false;document.body.classList.add('open');$('close').focus()};
+const shut=()=>{document.body.classList.remove('open');$('panel').inert=true;last&&last.focus()};
+$('list').addEventListener('click',e=>{const b=e.target.closest('.row');b&&open(b.dataset.i)});
+$('close').onclick=shut;$('veil').onclick=shut;
+addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('open'))shut()});
+// heading reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.6});
+document.querySelectorAll('h2').forEach(h=>io.observe(h));
+
+// ---------- hero: asteroid field ----------
+const hero=$('top'),cv=$('sky'),cx=cv.getContext('2d'),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let W,H,dpr,run=true,score=0,aim=-Math.PI/2,px=0,py=0,mx=0,my=0,held=false,cool=0;
+const stars=[],rocks=[],shots=[],bits=[],ship={x:0,y:0};
+function size(){dpr=Math.min(devicePixelRatio||1,2);const r=hero.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+ stars.length=0;for(let i=0;i<110;i++)stars.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1});
+ ship.x=W<760?W*.5:W*.74;ship.y=W<760?H*.84:H*.6}
+addEventListener('resize',size);size();
+function rock(r,x,y){const n=9,v=[];for(let i=0;i<n;i++)v.push(.75+Math.random()*.4);
+ const a=Math.random()*6.28,s=.4+Math.random()*.9;
+ return{x,y,r,v,rot:Math.random()*6.28,vr:(Math.random()-.5)*.02,dx:Math.cos(a)*s,dy:Math.sin(a)*s}}
+function spawn(){if(rocks.length>13)return;const e=Math.random()*4|0,r=16+Math.random()*30;
+ const x=e<2?(e?W+r:-r):Math.random()*W,y=e<2?Math.random()*H:(e==2?-r:H+r);
+ const k=rock(r,x,y);k.dx=(W/2-x)/W*1.4+(Math.random()-.5)*.6;k.dy=(H/2-y)/H*1.4+(Math.random()-.5)*.6;rocks.push(k)}
+function boom(x,y,c){for(let i=0;i<14;i++){const a=Math.random()*6.28,s=1+Math.random()*3;bits.push({x,y,dx:Math.cos(a)*s,dy:Math.sin(a)*s,l:1,c})}}
+function track(e){const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;px=(mx/W-.5);py=(my/H-.5);aim=Math.atan2(my-ship.y,mx-ship.x)}
+function fire(){shots.push({x:ship.x+Math.cos(aim)*20,y:ship.y+Math.sin(aim)*20,dx:Math.cos(aim)*12,dy:Math.sin(aim)*12,l:90})}
+hero.addEventListener('pointermove',track);
+hero.addEventListener('pointerleave',()=>{mx=0});
+hero.addEventListener('pointerdown',e=>{if(e.target.closest('a,button')||still)return;track(e);held=true;cool=0});
+addEventListener('pointerup',()=>{held=false});addEventListener('pointercancel',()=>{held=false});
+function frame(){
+ if(!run){requestAnimationFrame(frame);return}
+ cx.clearRect(0,0,W,H);
+ cx.fillStyle='#eef4ef';
+ stars.forEach(s=>{s.x-=.08*s.z;if(s.x<0)s.x=W;const x=s.x-px*40*s.z,y=s.y-py*40*s.z;cx.globalAlpha=.3+s.z*.6;cx.fillRect(x,y,s.z*2.2,s.z*2.2)});
+ cx.globalAlpha=1;
+ if(!still){
+  if(Math.random()<.02)spawn();
+  if(held&&--cool<=0){fire();cool=8}
+  rocks.forEach((k,i)=>{k.x+=k.dx;k.y+=k.dy;k.rot+=k.vr;
+   if(k.x<-90||k.x>W+90||k.y<-90||k.y>H+90)k.dead=1;
+   cx.save();cx.translate(k.x,k.y);cx.rotate(k.rot);cx.beginPath();
+   k.v.forEach((m,j)=>{const a=j/k.v.length*6.28;cx[j?'lineTo':'moveTo'](Math.cos(a)*k.r*m,Math.sin(a)*k.r*m)});
+   cx.closePath();cx.fillStyle='rgba(140,240,192,.08)';cx.fill();cx.strokeStyle='#8cf0c0';cx.lineWidth=2;cx.stroke();cx.restore()});
+  shots.forEach(b=>{b.x+=b.dx;b.y+=b.dy;b.l--;
+   rocks.forEach(k=>{if(!k.dead&&!b.dead&&Math.hypot(k.x-b.x,k.y-b.y)<k.r){k.dead=b.dead=1;score++;$('score').textContent=score;boom(k.x,k.y,'#ffd166');
+    if(k.r>26)for(let i=0;i<2;i++){const c=rock(k.r*.55,k.x,k.y);rocks.push(c)}}});
+   cx.strokeStyle='#ff6f59';cx.lineWidth=3;cx.beginPath();cx.moveTo(b.x,b.y);cx.lineTo(b.x-b.dx*1.6,b.y-b.dy*1.6);cx.stroke()});
+  for(let i=rocks.length;i--;)if(rocks[i].dead)rocks.splice(i,1);
+  for(let i=shots.length;i--;)if(shots[i].dead||shots[i].l<=0)shots.splice(i,1);
+  bits.forEach(p=>{p.x+=p.dx;p.y+=p.dy;p.l-=.03;cx.globalAlpha=Math.max(p.l,0);cx.fillStyle=p.c;cx.fillRect(p.x,p.y,3,3)});
+  cx.globalAlpha=1;for(let i=bits.length;i--;)if(bits[i].l<=0)bits.splice(i,1);
+  if(mx){cx.save();cx.setLineDash([4,8]);cx.strokeStyle='rgba(238,244,239,.4)';cx.lineWidth=1.5;cx.beginPath();cx.moveTo(ship.x+Math.cos(aim)*26,ship.y+Math.sin(aim)*26);cx.lineTo(mx,my);cx.stroke();cx.setLineDash([]);cx.beginPath();cx.arc(mx,my,9,0,6.28);cx.stroke();cx.restore()}
+  // ship
+  cx.save();cx.translate(ship.x,ship.y);cx.rotate(aim+Math.PI/2);
+  cx.fillStyle='#ff6f59';cx.beginPath();cx.moveTo(0,-18);cx.lineTo(13,14);cx.lineTo(0,8);cx.lineTo(-13,14);cx.closePath();cx.fill();
+  cx.fillStyle='#ffd166';cx.beginPath();cx.moveTo(-5,11);cx.lineTo(0,18+Math.random()*10);cx.lineTo(5,11);cx.fill();cx.restore();
+ }
+ requestAnimationFrame(frame)}
+new IntersectionObserver(e=>{run=e[0].isIntersecting}).observe(hero);
+frame();
+</script>
+</body>
+</html>
