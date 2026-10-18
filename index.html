@@ -18,12 +18,13 @@ html{scroll-behavior:smooth;background:var(--bg);color-scheme:dark}
 body{background-color:var(--bg);background-image:radial-gradient(60% 40% at 90% 35%,rgba(169,149,255,.16),transparent 70%),radial-gradient(55% 40% at 5% 75%,rgba(255,95,200,.12),transparent 70%);background-attachment:fixed;color:var(--ink);font:400 1.05rem/1.7 var(--b);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
-nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.1rem clamp(1rem,4vw,3rem);mix-blend-mode:difference}
+nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.1rem clamp(1rem,4vw,3rem);background:linear-gradient(rgba(7,6,26,.9),rgba(7,6,26,0))}
 nav b{font:700 .95rem var(--d)}
 nav div{display:flex;gap:1.6rem}
 nav a{text-decoration:none;font-weight:600;position:relative}
 nav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .35s}
-nav a:hover::after{transform:scaleX(1);transform-origin:left}
+nav a:focus-visible::after{transform:scaleX(1);transform-origin:left}
+@media(hover:hover){nav a:hover::after{transform:scaleX(1);transform-origin:left}}
 /* hero */
 .hero{position:relative;min-height:100svh;display:grid;align-content:center;padding:6rem clamp(1rem,4vw,3rem) 4rem;overflow:hidden;background:radial-gradient(70% 60% at 78% 18%,rgba(169,149,255,.34),transparent 70%),radial-gradient(55% 55% at 12% 88%,rgba(255,95,200,.22),transparent 70%),radial-gradient(45% 40% at 55% 55%,rgba(60,40,160,.35),transparent 75%),var(--bg);cursor:crosshair}
 #sky{position:absolute;inset:0;width:100%;height:100%}
@@ -39,7 +40,8 @@ h1 .w:nth-child(2) .c{color:transparent;-webkit-text-stroke:2px var(--cyan)}
 @keyframes fade{to{opacity:1}}
 .btn{display:inline-block;padding:.85rem 1.6rem;border-radius:99px;text-decoration:none;font-weight:600;border:2px solid var(--cyan);transition:background .3s,color .3s,transform .3s}
 .btn.f{background:var(--cyan);color:var(--bg)}
-.btn:hover{background:var(--pink);border-color:var(--pink);color:var(--ink);transform:translateY(-3px) rotate(-1.5deg)}
+@media(hover:hover){.btn:hover{background:var(--pink);border-color:var(--pink);color:var(--ink);transform:translateY(-3px) rotate(-1.5deg)}}
+.btn:active{background:var(--pink);border-color:var(--pink);color:var(--ink);transform:scale(.97)}
 .hud{position:absolute!important;right:clamp(1rem,4vw,3rem);bottom:1.6rem;text-align:right;font-size:.95rem;color:var(--dim);opacity:0;animation:fade 1s 1.8s forwards}
 .hud strong{display:block;font:700 2.4rem var(--d);color:var(--amber);line-height:1}
 /* sections */
@@ -49,17 +51,20 @@ h2.in{clip-path:inset(0 0 0 0)}
 .mq{overflow:hidden;border-block:1px solid var(--line);padding:1.1rem 0;background:var(--bg2);transform:rotate(-1.4deg) scale(1.03);margin:1rem 0}
 .mq div{display:flex;gap:3rem;width:max-content;animation:slide 32s linear infinite;font:700 1.4rem var(--d)}
 .mq span:nth-child(even){color:var(--pink)}
-.mq:hover div{animation-play-state:paused}
+@media(hover:hover){.mq:hover div{animation-play-state:paused}}
 @keyframes slide{to{transform:translateX(-50%)}}
 /* work */
 .row{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;width:100%;padding:1.6rem 0;background:none;border:0;border-top:1px solid var(--line);color:inherit;font:inherit;text-align:left;cursor:pointer;position:relative;isolation:isolate;transition:padding .4s}
 .row::before{content:"";position:absolute;inset:0 -1rem;background:linear-gradient(90deg,var(--pink),var(--amber));transform:scaleY(0);transform-origin:bottom;transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1;border-radius:6px}
-.row:hover::before,.row:focus-visible::before{transform:scaleY(1)}
-.row:hover,.row:focus-visible{padding-left:1.4rem;color:var(--bg)}
+.row:focus-visible::before{transform:scaleY(1)}
+@media(hover:hover){.row:hover::before{transform:scaleY(1)}}
+@media(hover:none){.row::before{transition:none}.row:active::before{transform:scaleY(1)}.row:active{color:var(--bg)}}
+.row:focus-visible{padding-left:1.4rem;color:var(--bg)}
+@media(hover:hover){.row:hover{padding-left:1.4rem;color:var(--bg)}}
 .row h3{font:700 clamp(1.4rem,3.6vw,2.4rem)/1.1 var(--d);letter-spacing:-.02em}
 .row p{opacity:.85}
 .row i{font:normal 700 1.8rem var(--d);transition:transform .4s}
-.row:hover i{transform:rotate(90deg) scale(1.2)}
+@media(hover:hover){.row:hover i{transform:rotate(90deg) scale(1.2)}}
 .work{border-bottom:1px solid var(--line)}
 /* about */
 .about{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem}
@@ -75,7 +80,8 @@ h2.in{clip-path:inset(0 0 0 0)}
 .contact{text-align:center}
 .contact h2{margin-inline:auto}
 .big{display:block;font:700 clamp(1.5rem,5.5vw,4rem) var(--d);text-decoration:none;letter-spacing:-.03em;padding:.4rem 0;transition:letter-spacing .5s,color .3s}
-.big:hover{letter-spacing:.02em;color:var(--pink)}
+@media(hover:hover){.big:hover{letter-spacing:.02em;color:var(--pink)}}
+.big:active{color:var(--pink)}
 footer{padding:2rem;text-align:center;color:var(--dim);font-size:.9rem}
 /* panel */
 .veil{position:fixed;inset:0;background:rgba(7,6,26,.82);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .4s;z-index:30}
@@ -88,9 +94,15 @@ body.open .panel{transform:none}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.4rem 0}
 .chips span{border:1px solid var(--cyan);color:var(--cyan);border-radius:99px;padding:.15rem .8rem;font-size:.9rem}
 .x{position:absolute;top:1rem;right:1rem;background:none;border:2px solid var(--ink);color:var(--ink);border-radius:50%;width:2.6rem;height:2.6rem;font-size:1.3rem;cursor:pointer;transition:transform .4s,background .3s}
-.x:hover{transform:rotate(180deg);background:var(--pink);border-color:var(--pink)}
+@media(hover:hover){.x:hover{transform:rotate(180deg);background:var(--pink);border-color:var(--pink)}}
+.x:active{background:var(--pink);border-color:var(--pink)}
 .panel .btn{margin:0 .5rem .5rem 0}
-@media(max-width:760px){.about{grid-template-columns:1fr}nav div{gap:1rem}}
+html{overflow-x:hidden}
+.hero{touch-action:manipulation;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+a,button{-webkit-tap-highlight-color:transparent}
+body.open{overflow:hidden}
+.panel{overscroll-behavior:contain}
+@media(max-width:760px){.about{grid-template-columns:1fr}nav div{gap:1rem}.hud{right:auto;left:1rem;text-align:left;font-size:.85rem}.hud strong{font-size:1.8rem}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}h2{clip-path:none}.mq div{animation:none}}
 </style>
 </head>
@@ -102,7 +114,7 @@ body.open .panel{transform:none}
   <h1 aria-label="Kyran Hannah"><span class="w" id="n1"></span><span class="w" id="n2"></span></h1>
   <p class="sub">Software developer in Auckland. I build games, mobile apps and web tools.</p>
   <div class="cta"><a class="btn f" href="#work">See my work</a><a class="btn" href="#contact">Get in touch</a></div>
-  <div class="hud" aria-hidden="true"><strong id="score">0</strong>asteroids cleared<br>Aim with your mouse. Click or hold to fire.</div>
+  <div class="hud" aria-hidden="true"><strong id="score">0</strong>asteroids cleared<br><span id="hint">Aim with your mouse. Click or hold to fire.</span></div>
 </header>
 
 <div class="mq" aria-hidden="true"><div id="mq"></div></div>
@@ -173,29 +185,32 @@ $('list').addEventListener('click',e=>{const b=e.target.closest('.row');b&&open(
 $('close').onclick=shut;$('veil').onclick=shut;
 addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('open'))shut()});
 // heading reveal
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.6});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.3});
 document.querySelectorAll('h2').forEach(h=>io.observe(h));
 
 // ---------- hero: asteroid field ----------
 const hero=$('top'),cv=$('sky'),cx=cv.getContext('2d'),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
 let W,H,dpr,run=true,score=0,aim=-Math.PI/2,px=0,py=0,mx=0,my=0,held=false,cool=0;
 const stars=[],rocks=[],shots=[],bits=[],ship={x:0,y:0};
-function size(){dpr=Math.min(devicePixelRatio||1,2);const r=hero.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
- stars.length=0;for(let i=0;i<110;i++)stars.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1});
+function size(){const r=hero.getBoundingClientRect();if(r.width===W&&r.height===H)return;dpr=Math.min(devicePixelRatio||1,r.width<760?1.5:2);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+ stars.length=0;for(let i=0;i<(W<760?70:110);i++)stars.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1});
  ship.x=W<760?W*.5:W*.74;ship.y=W<760?H*.84:H*.6}
 addEventListener('resize',size);size();
 function rock(r,x,y){const n=9,v=[];for(let i=0;i<n;i++)v.push(.75+Math.random()*.4);
  const a=Math.random()*6.28,s=.4+Math.random()*.9;
  return{x,y,r,v,rot:Math.random()*6.28,vr:(Math.random()-.5)*.02,dx:Math.cos(a)*s,dy:Math.sin(a)*s}}
-function spawn(){if(rocks.length>13)return;const e=Math.random()*4|0,r=16+Math.random()*30;
+function spawn(){if(rocks.length>(W<760?8:13))return;const e=Math.random()*4|0,r=(16+Math.random()*30)*(W<760?.7:1);
  const x=e<2?(e?W+r:-r):Math.random()*W,y=e<2?Math.random()*H:(e==2?-r:H+r);
  const k=rock(r,x,y);k.dx=(W/2-x)/W*1.4+(Math.random()-.5)*.6;k.dy=(H/2-y)/H*1.4+(Math.random()-.5)*.6;rocks.push(k)}
 function boom(x,y,c){for(let i=0;i<14;i++){const a=Math.random()*6.28,s=1+Math.random()*3;bits.push({x,y,dx:Math.cos(a)*s,dy:Math.sin(a)*s,l:1,c})}}
 function track(e){const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;px=(mx/W-.5);py=(my/H-.5);aim=Math.atan2(my-ship.y,mx-ship.x)}
 function fire(){shots.push({x:ship.x+Math.cos(aim)*20,y:ship.y+Math.sin(aim)*20,dx:Math.cos(aim)*12,dy:Math.sin(aim)*12,l:90})}
-hero.addEventListener('pointermove',track);
-hero.addEventListener('pointerleave',()=>{mx=0});
-hero.addEventListener('pointerdown',e=>{if(e.target.closest('a,button')||still)return;track(e);held=true;cool=0});
+hero.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')track(e)});
+hero.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')mx=0});
+hero.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.target.closest('a,button')||still)return;track(e);held=true;cool=0});
+let fadeT;
+hero.addEventListener('pointerup',e=>{if(e.pointerType==='mouse'||e.target.closest('a,button')||still)return;track(e);fire();clearTimeout(fadeT);fadeT=setTimeout(()=>{mx=0},450)});
+if(matchMedia('(pointer:coarse)').matches)$('hint').textContent='Tap to aim and fire.';
 addEventListener('pointerup',()=>{held=false});addEventListener('pointercancel',()=>{held=false});
 function frame(){
  if(!run){requestAnimationFrame(frame);return}
@@ -213,7 +228,7 @@ function frame(){
    cx.closePath();cx.fillStyle='rgba(127,214,255,.09)';cx.fill();cx.strokeStyle='#7fd6ff';cx.lineWidth=2;cx.stroke();cx.restore()});
   shots.forEach(b=>{b.x+=b.dx;b.y+=b.dy;b.l--;
    rocks.forEach(k=>{if(!k.dead&&!b.dead&&Math.hypot(k.x-b.x,k.y-b.y)<k.r){k.dead=b.dead=1;score++;$('score').textContent=score;boom(k.x,k.y,'#ffd36e');
-    if(k.r>26)for(let i=0;i<2;i++){const c=rock(k.r*.55,k.x,k.y);rocks.push(c)}}});
+    if(k.r>(W<760?19:26))for(let i=0;i<2;i++){const c=rock(k.r*.55,k.x,k.y);rocks.push(c)}}});
    cx.strokeStyle='#ff5fc8';cx.lineWidth=3;cx.beginPath();cx.moveTo(b.x,b.y);cx.lineTo(b.x-b.dx*1.6,b.y-b.dy*1.6);cx.stroke()});
   for(let i=rocks.length;i--;)if(rocks[i].dead)rocks.splice(i,1);
   for(let i=shots.length;i--;)if(shots[i].dead||shots[i].l<=0)shots.splice(i,1);
