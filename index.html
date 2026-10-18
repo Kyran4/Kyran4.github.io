@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#07061a">
 <title>Kyran Hannah - Software developer, Auckland</title>
 <meta name="description" content="Portfolio of Kyran Hannah: games, mobile apps and web apps built with C#, .NET and Unity.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,8 +13,8 @@
 <style>
 :root{--bg:#07061a;--bg2:#15103a;--ink:#ece9ff;--dim:#a8a2d6;--cyan:#a995ff;--pink:#ff5fc8;--amber:#ffd36e;--line:rgba(236,233,255,.17);--d:'Inter','Segoe UI',system-ui,Arial,sans-serif;--b:'Inter','Segoe UI',system-ui,Arial,sans-serif}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg) radial-gradient(60% 40% at 90% 35%,rgba(169,149,255,.16),transparent 70%) fixed,radial-gradient(55% 40% at 5% 75%,rgba(255,95,200,.12),transparent 70%) fixed;color:var(--ink);font:400 1.05rem/1.7 var(--b);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;background:var(--bg);color-scheme:dark}
+body{background-color:var(--bg);background-image:radial-gradient(60% 40% at 90% 35%,rgba(169,149,255,.16),transparent 70%),radial-gradient(55% 40% at 5% 75%,rgba(255,95,200,.12),transparent 70%);background-attachment:fixed;color:var(--ink);font:400 1.05rem/1.7 var(--b);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1.1rem clamp(1rem,4vw,3rem);mix-blend-mode:difference}
@@ -113,7 +115,7 @@ body.open .panel{transform:none}
   <div>
     <h2>About me</h2>
     <p>I'm a software developer based in Auckland, New Zealand. I like building things people can touch, whether that's a ship that handles well in a Unity game or a cross-platform app with a clean service layer behind it.</p>
-    <p>I've led student teams through Agile sprints, kept risk registers, handled change requests and shipped working software on a deadline. Outside of code you'll most likely find me under the bonnet of a car or trying to find my 10mm socket.</p>
+    <p>I've led student teams through Agile sprints, kept risk registers, handled change requests and shipped working software on a deadline. Outside of code you'll find me snowboarding, gaming, cooking or under the bonnet of a car.</p>
   </div>
   <ol class="tl" aria-label="Education">
     <li><b>Level 5 Diploma</b><span>Web Development &amp; Design, Techtorium</span></li>
@@ -150,7 +152,7 @@ const projects=[
   b:['Django backend','Built for fun outside of coursework'],k:['Python','Django','CSS'],r:[['View repo','TechWebsite']]},
  {t:'Asteroid Blast',s:'2D space game in Unity',d:'A complete 2D Unity game, from design and animation to scripting, sound and effects.',
   b:['Rigidbody2D ship physics with thrusters and smooth rotation','Asteroid spawner plus a chase variant with different behaviour','Time-freeze power-up, pickups, score, lives and respawn','Event-driven architecture linking gameplay, UI, audio and VFX','Menus built with UI Toolkit; multiple levels and scenes'],
-  k:['Unity','C#','Input System','UI Toolkit'],r:[['View repo','Asteroid-Blast-Playable']]}
+  k:['Unity','C#','Input System','UI Toolkit'],r:[['View repo','AsteroidBlast']]}
 ];
 const skills=['C#','.NET MAUI','ASP.NET Core','EF Core','SQL Server','SQLite','Unity','Python','Django','Razor Pages','Git','Azure Boards'];
 // --------------------------------------------
