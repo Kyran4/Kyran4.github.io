@@ -314,10 +314,10 @@ function hint(){$('hint').textContent=still?'':playing?(coarse?'Tap to aim and f
 function enter(){if(playing||still)return;playing=true;reset();scrollTo({top:0,behavior:'instant'});hero.classList.add('on');document.body.classList.add('playing');hint()}
 function leave(){if(!playing)return;saveBest();playing=false;held=false;mx=0;clearTimeout(fadeT);hero.classList.remove('on');document.body.classList.remove('playing');hint()}
 hero.addEventListener('click',e=>{if(!e.target.closest('a,button'))enter()});
-hero.addEventListener('pointermove',e=>{if(playing&&e.pointerType==='mouse')track(e)});
+hero.addEventListener('pointermove',e=>{if(playing)track(e)});
 hero.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')mx=0});
-hero.addEventListener('pointerdown',e=>{if(!playing||e.pointerType!=='mouse'||e.target.closest('a,button'))return;if(over){reset();return}track(e);held=true;cool=0});
-hero.addEventListener('pointerup',e=>{if(!playing||e.pointerType==='mouse'||e.target.closest('a,button'))return;if(over){reset();return}track(e);fire();clearTimeout(fadeT);fadeT=setTimeout(()=>{mx=0},450)});
+hero.addEventListener('pointerdown',e=>{if(!playing||e.target.closest('a,button'))return;if(over){reset();return}track(e);held=true;cool=0});
+hero.addEventListener('pointerup',e=>{if(!playing||e.target.closest('a,button'))return;if(over){reset();return}held=false;track(e);clearTimeout(fadeT);fadeT=setTimeout(()=>{mx=0},450)});
 const release=()=>{held=false};
 ['pointerup','pointercancel','blur'].forEach(t=>addEventListener(t,release));
 hero.addEventListener('touchmove',e=>{if(playing)e.preventDefault()},{passive:false});
@@ -326,7 +326,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape')leave()});
 document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',leave));
 // easter egg: Konami code, or tap the KH logo 5 times
 const kc=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let ki=0;
-function egg(){turbo=720;toast(playing?'★ Hyperdrive unlocked ★':'★ Hyperdrive unlocked: start the game to use it ★')}
+function egg(){turbo=coarse?720:1800;toast(playing?'★ Hyperdrive unlocked ★':'★ Hyperdrive unlocked: start the game to use it ★')}
 addEventListener('keydown',e=>{const k=e.key.length===1?e.key.toLowerCase():e.key;ki=k===kc[ki]?ki+1:(k===kc[0]?1:0);if(ki===kc.length){ki=0;egg()}});
 let lt=0,lc=0;$('logo').addEventListener('click',()=>{const n=Date.now();lc=n-lt<1500?lc+1:1;lt=n;if(lc>=5){lc=0;egg()}});
 hint();hud();
