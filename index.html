@@ -97,7 +97,7 @@ body.open .panel{transform:none}
 @media(hover:hover){.x:hover{transform:rotate(180deg);background:var(--pink);border-color:var(--pink)}}
 .x:active{background:var(--pink);border-color:var(--pink)}
 .panel .btn{margin:0 .5rem .5rem 0}
-html{overflow-x:hidden;scrollbar-gutter:stable}
+html{scrollbar-gutter:stable}
 body.playing,html:has(body.playing){overflow:hidden}
 body.playing{overscroll-behavior:none}
 .hero:not(.on){cursor:pointer}
@@ -118,6 +118,7 @@ body.open{overflow:hidden}
 @media(max-width:760px){.about{grid-template-columns:1fr}nav div{gap:1rem}.hud{right:auto;left:1rem;text-align:left;font-size:.85rem}.hud strong{font-size:1.8rem}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}h2{clip-path:none}.mq div{animation:none}}
 </style>
+<noscript><style>h2{clip-path:none}</style></noscript>
 </head>
 <body>
 <nav><b>KH</b><div><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
@@ -134,7 +135,7 @@ body.open{overflow:hidden}
 <div class="mq" aria-hidden="true"><div id="mq"></div></div>
 
 <section id="work">
-  <h2>My Projects</h2>
+  <h2>Selected work</h2>
   <div class="work" id="list"></div>
 </section>
 
@@ -199,8 +200,10 @@ $('list').addEventListener('click',e=>{const b=e.target.closest('.row');b&&open(
 $('close').onclick=shut;$('veil').onclick=shut;
 addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('open'))shut()});
 // heading reveal
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.3});
-document.querySelectorAll('h2').forEach(h=>io.observe(h));
+const heads=[...document.querySelectorAll('h2')];
+function reveal(){heads.forEach(h=>{if(!h.classList.contains('in')&&h.getBoundingClientRect().top<innerHeight*.92)h.classList.add('in')})}
+['scroll','resize','load'].forEach(t=>addEventListener(t,reveal,{passive:true,capture:true}));
+reveal();
 
 // ---------- hero: asteroid field ----------
 const hero=$('top'),cv=$('sky'),cx=cv.getContext('2d'),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
