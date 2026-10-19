@@ -6,7 +6,16 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#07061a">
 <title>Kyran Hannah - Software developer, Auckland</title>
-<meta name="description" content="Portfolio of Kyran Hannah: games, mobile apps and web apps built with C#, .NET and Unity.">
+<meta name="description" content="Software developer in Auckland. Games, mobile apps and web apps built with C#, .NET, Unity and Django. See my projects and get in touch.">
+<link rel="canonical" href="https://kyran4.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kyran Hannah">
+<meta property="og:title" content="Kyran Hannah - Software developer, Auckland">
+<meta property="og:description" content="Software developer in Auckland. Games, mobile apps and web apps built with C#, .NET, Unity and Django. See my projects and get in touch.">
+<meta property="og:url" content="https://kyran4.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kyran Hannah - Software developer, Auckland">
+<meta name="twitter:description" content="Software developer in Auckland. Games, mobile apps and web apps built with C#, .NET, Unity and Django. See my projects and get in touch.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232b2466'/%3E%3Cpath d='M38 22 L61 43 L59 48 L52 47 L39 44Z' fill='%23c3c7d3'/%3E%3Cpath d='M 26 22 L 3 43 L 5 48 L 12 47 L 25 44 Z' fill='%23c3c7d3'/%3E%3Cpath d='M38 22 L61 43 L56 43 L38 30Z' fill='%23e4e6ee'/%3E%3Cpath d='M 26 22 L 3 43 L 8 43 L 26 30 Z' fill='%23e4e6ee'/%3E%3Cpath d='M39 15 L45 5 L43 32 L39 34Z' fill='%23a3a8b6'/%3E%3Cpath d='M 25 15 L 19 5 L 21 32 L 25 34 Z' fill='%23a3a8b6'/%3E%3Cpath d='M39 46 L47 61 L40 57 L36 52Z' fill='%237d8190'/%3E%3Cpath d='M 25 46 L 17 61 L 24 57 L 28 52 Z' fill='%237d8190'/%3E%3Cpath d='M52 44 L56 44 L55 47 L51.5 46.5Z' fill='%23d93636'/%3E%3Cpath d='M 12 44 L 8 44 L 9 47 L 12.5 46.5 Z' fill='%23d93636'/%3E%3Crect x='42' y='37' width='8' height='15' rx='2.5' fill='%23454856'/%3E%3Crect x='14' y='37' width='8' height='15' rx='2.5' fill='%23454856'/%3E%3Crect x='43.5' y='50' width='5' height='3' rx='1' fill='%23ff4a4a'/%3E%3Crect x='15.5' y='50' width='5' height='3' rx='1' fill='%23ff4a4a'/%3E%3Cpath d='M32 3 L37.5 17 L38.5 40 L35.5 53 L32 58 L28.5 53 L25.5 40 L26.5 17Z' fill='%232c2e38' stroke='%239097ad' stroke-width='1.2'/%3E%3Cellipse cx='32' cy='27' rx='3.2' ry='8' fill='%230a0a0f'/%3E%3Cpath d='M31 21 L31 31' stroke='%237a7f92' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M30 44 L34 44 L32 50Z' fill='%23d93636'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,6 +107,29 @@ body.open .panel{transform:none}
 .x:active{background:var(--pink);border-color:var(--pink)}
 .panel .btn{margin:0 .5rem .5rem 0}
 html{scrollbar-gutter:stable}
+.bar{position:fixed;top:0;left:0;right:0;height:3px;z-index:35;background:linear-gradient(90deg,var(--cyan),var(--pink));transform-origin:left;transform:scaleX(0)}
+nav a.cur{color:var(--cyan)}
+nav a.cur::after{transform:scaleX(1);transform-origin:left}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
+.sk>div,.gh a{border:1px solid var(--line);border-radius:14px;padding:1.3rem;background:rgba(21,16,58,.5)}
+.sk h3{font:700 .8rem var(--d);letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.9rem}
+.sk .chips{margin:0}
+.gh{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem}
+.gh a{display:flex;flex-direction:column;gap:.5rem;text-decoration:none;transition:border-color .3s,transform .3s}
+.gh a:active{border-color:var(--pink)}
+@media(hover:hover){.gh a:hover{border-color:var(--cyan);transform:translateY(-4px)}}
+.gh b{font:700 1.1rem var(--d)}
+.gh p{color:var(--dim);font-size:.95rem;flex:1}
+.gh small{display:flex;gap:1rem;color:var(--dim)}
+.ghmsg{color:var(--dim)}
+.mail{display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.copy{font:600 .95rem var(--b);padding:.5rem 1.2rem;border-radius:99px;border:2px solid var(--cyan);background:none;color:var(--cyan);cursor:pointer;transition:background .3s,color .3s}
+.copy.ok{background:var(--cyan);color:var(--bg)}
+@media(hover:hover){.copy:hover{background:var(--cyan);color:var(--bg)}}
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,16px);padding:.7rem 1.3rem;border-radius:99px;background:var(--bg2);border:2px solid var(--amber);color:var(--ink);opacity:0;pointer-events:none;transition:opacity .4s,transform .4s;z-index:40;font-weight:600;text-align:center;max-width:90vw}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.hud a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
+
 body.playing,html:has(body.playing){overflow:hidden}
 body.playing{overscroll-behavior:none}
 .hero:not(.on){cursor:pointer}
@@ -121,14 +153,15 @@ body.open{overflow:hidden}
 <noscript><style>h2{clip-path:none}</style></noscript>
 </head>
 <body>
-<nav><b>KH</b><div><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
+<div class="bar" id="bar"></div>
+<nav><b id="logo">KH</b><div><a href="#work">Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
 
 <header class="hero" id="top">
   <canvas id="sky" aria-hidden="true"></canvas>
   <h1 aria-label="Kyran Hannah"><span class="w" id="n1"></span><span class="w" id="n2"></span></h1>
   <p class="sub">Software developer in Auckland. I build games, mobile apps and web tools.</p>
-  <div class="cta"><a class="btn f" href="#work">See my work</a><a class="btn" href="#contact">Get in touch</a></div>
-  <div class="hud" aria-hidden="true"><strong id="score">0</strong>asteroids cleared<br><span id="hint">Click to play</span></div>
+  <div class="cta"><a class="btn f" href="#work">See my work</a><a class="btn" href="#contact">Get in touch</a><a class="btn" href="Kyran-Hannah-CV.pdf" download>Download CV</a></div>
+  <div class="hud"><strong id="score">0</strong>asteroids cleared<br>Best <span id="best">0</span> · Lives <span id="lives">♥♥♥</span><br><span id="hint">Click to play</span><br><a href="https://github.com/Kyran4/Asteroid-Blast-Playable" target="_blank" rel="noopener">Play the full game →</a></div>
   <button class="exit" id="exit" type="button" aria-label="Exit game">Exit game ✕</button>
 </header>
 
@@ -137,6 +170,21 @@ body.open{overflow:hidden}
 <section id="work">
   <h2>My Projects</h2>
   <div class="work" id="list"></div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="sk">
+    <div><h3>Languages</h3><div class="chips"><span>C#</span><span>Python</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>SQL</span></div></div>
+    <div><h3>Frameworks</h3><div class="chips"><span>.NET MAUI</span><span>ASP.NET Core</span><span>Razor Pages</span><span>Django</span><span>Unity</span></div></div>
+    <div><h3>Data</h3><div class="chips"><span>SQL Server</span><span>SQLite</span><span>EF Core</span></div></div>
+    <div><h3>Tools &amp; practice</h3><div class="chips"><span>Git</span><span>GitHub</span><span>Azure Boards</span><span>Agile</span><span>MVVM</span></div></div>
+  </div>
+</section>
+
+<section id="github">
+  <h2>Latest on GitHub</h2>
+  <div class="gh" id="gh"><p class="ghmsg">Loading…</p></div>
 </section>
 
 <section id="about" class="about">
@@ -153,12 +201,14 @@ body.open{overflow:hidden}
 
 <section id="contact" class="contact">
   <h2>Let's build something</h2>
-  <a class="big" href="mailto:kyranhannah@gmail.com">kyranhannah@gmail.com</a>
+  <div class="mail"><a class="big" href="mailto:kyranhannah@gmail.com">kyranhannah@gmail.com</a><button class="copy" id="copy" type="button" aria-live="polite">Copy email</button></div>
+  <a class="big" href="Kyran_Hannah_CV.pdf" download>Download CV</a>
   <a class="big" href="https://github.com/Kyran4" target="_blank" rel="noopener">GitHub</a>
   <a class="big" href="https://www.linkedin.com/in/kyran-hannah-217003382/" target="_blank" rel="noopener">LinkedIn</a>
 </section>
 <footer>© <span id="yr"></span> Kyran Hannah</footer>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="veil" id="veil"></div>
 <aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="pt" inert>
   <button class="x" id="close" aria-label="Close project details">x</button>
@@ -205,40 +255,72 @@ function reveal(){heads.forEach(h=>{if(!h.classList.contains('in')&&h.getBoundin
 ['scroll','resize','load'].forEach(t=>addEventListener(t,reveal,{passive:true,capture:true}));
 reveal();
 
+// ---------- copy email, scroll bar, live GitHub cards ----------
+$('copy').addEventListener('click',async()=>{const b=$('copy'),addr=b.previousElementSibling.getAttribute('href').replace('mailto:','');let ok=false;
+ try{await navigator.clipboard.writeText(addr);ok=true}catch(e){const t=document.createElement('textarea');t.value=addr;t.style.cssText='position:fixed;opacity:0';document.body.appendChild(t);t.select();try{ok=document.execCommand('copy')}catch(e){}t.remove()}
+ b.textContent=ok?'Copied ✓':'Select and copy it above';b.classList.toggle('ok',ok);setTimeout(()=>{b.textContent='Copy email';b.classList.remove('ok')},1800)});
+const secs=['work','skills','github','about','contact'].map(id=>$(id)),links={},alias={github:'skills'};
+document.querySelectorAll('nav a').forEach(a=>{links[a.getAttribute('href').slice(1)]=a});
+let tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(()=>{tick=false;const m=document.documentElement.scrollHeight-innerHeight;
+ $('bar').style.transform='scaleX('+(m>0?Math.min(scrollY/m,1):0)+')';let cur='';secs.forEach(x=>{if(x.getBoundingClientRect().top<innerHeight*.4)cur=x.id});cur=alias[cur]||cur;
+ Object.keys(links).forEach(id=>links[id].classList.toggle('cur',id===cur))})}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+(async()=>{const box=$('gh');let repos;
+ try{repos=JSON.parse(sessionStorage.getItem('kh-repos'))}catch(e){}
+ if(!repos){try{const r=await fetch('https://api.github.com/users/'+GH+'/repos?sort=updated&per_page=30');if(!r.ok)throw 0;repos=await r.json();try{sessionStorage.setItem('kh-repos',JSON.stringify(repos))}catch(e){}}catch(e){}}
+ box.textContent='';
+ const list=Array.isArray(repos)?repos.filter(r=>!r.fork&&!r.archived&&r.name.toLowerCase()!==(GH+'.github.io').toLowerCase()).slice(0,6):[];
+ if(!list.length){const p=document.createElement('p'),a=document.createElement('a');p.className='ghmsg';p.textContent='Couldn’t load repos right now. ';a.href='https://github.com/'+GH;a.textContent='See them on GitHub →';a.style.color='var(--cyan)';p.append(a);box.append(p);return}
+ list.forEach(r=>{const a=document.createElement('a'),n=document.createElement('b'),d=document.createElement('p'),m=document.createElement('small');
+  a.href=r.html_url;a.target='_blank';a.rel='noopener';n.textContent=r.name;d.textContent=r.description||'No description yet.';
+  [r.language,r.stargazers_count>0?'★ '+r.stargazers_count:'','Updated '+new Date(r.pushed_at).toLocaleDateString('en-NZ',{day:'numeric',month:'short',year:'numeric'})].filter(Boolean).forEach(t=>{const sp=document.createElement('span');sp.textContent=t;m.append(sp)});
+  a.append(n,d,m);box.append(a)})})();
 // ---------- hero: asteroid field ----------
-const hero=$('top'),cv=$('sky'),cx=cv.getContext('2d'),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
-let W,H,dpr,run=true,score=0,aim=-Math.PI/2,px=0,py=0,mx=0,my=0,held=false,cool=0;
-const stars=[],rocks=[],shots=[],bits=[],ship={x:0,y:0};
+const hero=$('top'),cv=$('sky'),cx=cv.getContext('2d'),still=matchMedia('(prefers-reduced-motion:reduce)').matches,coarse=matchMedia('(pointer:coarse)').matches;
+let W,H,dpr,run=true,score=0,best=0,lives=3,inv=0,over=false,freeze=0,turbo=0,aim=-Math.PI/2,px=0,py=0,mx=0,my=0,held=false,cool=0,playing=false,fadeT,toastT;
+try{best=+localStorage.getItem('kh-best')||0}catch(e){}
+const stars=[],rocks=[],shots=[],bits=[],ups=[],ship={x:0,y:0};
 function size(){const r=hero.getBoundingClientRect();if(r.width===W&&r.height===H)return;dpr=Math.min(devicePixelRatio||1,r.width<760?1.5:2);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
  stars.length=0;for(let i=0;i<(W<760?70:110);i++)stars.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1});
- ship.x=W<760?W*.5:W*.74;ship.y=W<760?H*.84:H*.6}
+ ship.x=W<760?W*.5:W*.74;ship.y=W<760?H*.7:H*.6}
 addEventListener('resize',size);size();
-function rock(r,x,y){const n=9,v=[];for(let i=0;i<n;i++)v.push(.75+Math.random()*.4);
+const lv=()=>playing?Math.min(score/8|0,8):0;
+function rock(r,x,y){const v=[];for(let i=0;i<9;i++)v.push(.75+Math.random()*.4);
  const a=Math.random()*6.28,s=.4+Math.random()*.9;
  return{x,y,r,v,rot:Math.random()*6.28,vr:(Math.random()-.5)*.02,dx:Math.cos(a)*s,dy:Math.sin(a)*s}}
-function spawn(){if(rocks.length>(W<760?8:13))return;const e=Math.random()*4|0,r=(16+Math.random()*30)*(W<760?.7:1);
- const x=e<2?(e?W+r:-r):Math.random()*W,y=e<2?Math.random()*H:(e==2?-r:H+r);
- const k=rock(r,x,y);k.dx=(W/2-x)/W*1.4+(Math.random()-.5)*.6;k.dy=(H/2-y)/H*1.4+(Math.random()-.5)*.6;rocks.push(k)}
+function spawn(){const l=lv();if(rocks.length>(W<760?8:13)+Math.min(l,4))return;const e=Math.random()*4|0,r=(16+Math.random()*30)*(W<760?.7:1);
+ const x=e<2?(e?W+r:-r):Math.random()*W,y=e<2?Math.random()*H:(e==2?-r:H+r),m=1+l*.08;
+ const k=rock(r,x,y);k.dx=((W/2-x)/W*1.4+(Math.random()-.5)*.6)*m;k.dy=((H/2-y)/H*1.4+(Math.random()-.5)*.6)*m;rocks.push(k)}
+function spawnUp(){const e=Math.random()<.5;ups.push({x:e?-20:W+20,y:H*(.2+Math.random()*.5),dx:(e?1:-1)*(.8+Math.random()*.5),dy:(Math.random()-.5)*.4,r:14})}
 function boom(x,y,c){for(let i=0;i<14;i++){const a=Math.random()*6.28,s=1+Math.random()*3;bits.push({x,y,dx:Math.cos(a)*s,dy:Math.sin(a)*s,l:1,c})}}
 function track(e){const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;px=(mx/W-.5);py=(my/H-.5);aim=Math.atan2(my-ship.y,mx-ship.x)}
-function fire(){shots.push({x:ship.x+Math.cos(aim)*20,y:ship.y+Math.sin(aim)*20,dx:Math.cos(aim)*12,dy:Math.sin(aim)*12,l:90})}
-let playing=false,fadeT;
-const coarse=matchMedia('(pointer:coarse)').matches;
+function fire(){(turbo>0?[-.3,-.15,0,.15,.3]:[0]).forEach(o=>{const a=aim+o;shots.push({x:ship.x+Math.cos(a)*20,y:ship.y+Math.sin(a)*20,dx:Math.cos(a)*12,dy:Math.sin(a)*12,l:90})})}
+function hud(){$('score').textContent=score;$('best').textContent=Math.max(best,score);$('lives').textContent='♥'.repeat(Math.max(lives,0))||'–'}
+function saveBest(){if(score>best){best=score;try{localStorage.setItem('kh-best',best)}catch(e){}}hud()}
+function reset(){score=0;lives=3;inv=0;over=false;freeze=0;rocks.length=shots.length=ups.length=0;hud()}
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove('show'),3200)}
 function hint(){$('hint').textContent=still?'':playing?(coarse?'Tap to aim and fire.':'Aim with your mouse. Click or hold to fire.'):(coarse?'Tap to play':'Click to play')}
-function enter(){if(playing||still)return;playing=true;scrollTo({top:0,behavior:'instant'});hero.classList.add('on');document.body.classList.add('playing');hint()}
-function leave(){if(!playing)return;playing=false;held=false;mx=0;clearTimeout(fadeT);hero.classList.remove('on');document.body.classList.remove('playing');hint()}
+function enter(){if(playing||still)return;playing=true;reset();scrollTo({top:0,behavior:'instant'});hero.classList.add('on');document.body.classList.add('playing');hint()}
+function leave(){if(!playing)return;saveBest();playing=false;held=false;mx=0;clearTimeout(fadeT);hero.classList.remove('on');document.body.classList.remove('playing');hint()}
 hero.addEventListener('click',e=>{if(!e.target.closest('a,button'))enter()});
 hero.addEventListener('pointermove',e=>{if(playing&&e.pointerType==='mouse')track(e)});
 hero.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')mx=0});
-hero.addEventListener('pointerdown',e=>{if(!playing||e.pointerType!=='mouse'||e.target.closest('a,button'))return;track(e);held=true;cool=0});
-hero.addEventListener('pointerup',e=>{if(!playing||e.pointerType==='mouse'||e.target.closest('a,button'))return;track(e);fire();clearTimeout(fadeT);fadeT=setTimeout(()=>{mx=0},450)});
+hero.addEventListener('pointerdown',e=>{if(!playing||e.pointerType!=='mouse'||e.target.closest('a,button'))return;if(over){reset();return}track(e);held=true;cool=0});
+hero.addEventListener('pointerup',e=>{if(!playing||e.pointerType==='mouse'||e.target.closest('a,button'))return;if(over){reset();return}track(e);fire();clearTimeout(fadeT);fadeT=setTimeout(()=>{mx=0},450)});
 const release=()=>{held=false};
 ['pointerup','pointercancel','blur'].forEach(t=>addEventListener(t,release));
 hero.addEventListener('touchmove',e=>{if(playing)e.preventDefault()},{passive:false});
 $('exit').addEventListener('click',leave);
 addEventListener('keydown',e=>{if(e.key==='Escape')leave()});
 document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',leave));
-hint();
+// easter egg: Konami code, or tap the KH logo 5 times
+const kc=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let ki=0;
+function egg(){turbo=720;toast(playing?'★ Hyperdrive unlocked ★':'★ Hyperdrive unlocked: start the game to use it ★')}
+addEventListener('keydown',e=>{const k=e.key.length===1?e.key.toLowerCase():e.key;ki=k===kc[ki]?ki+1:(k===kc[0]?1:0);if(ki===kc.length){ki=0;egg()}});
+let lt=0,lc=0;$('logo').addEventListener('click',()=>{const n=Date.now();lc=n-lt<1500?lc+1:1;lt=n;if(lc>=5){lc=0;egg()}});
+hint();hud();
+function meter(t,f,c,y){cx.save();cx.textAlign='center';cx.fillStyle=c;cx.font='700 12px Inter,system-ui,sans-serif';cx.fillText(t,W/2,y);cx.fillRect(W/2-60,y+6,120*f,4);cx.restore()}
 function frame(){
  if(!run){requestAnimationFrame(frame);return}
  cx.clearRect(0,0,W,H);
@@ -246,26 +328,38 @@ function frame(){
  stars.forEach(s=>{s.x-=.08*s.z;if(s.x<0)s.x=W;const x=s.x-px*40*s.z,y=s.y-py*40*s.z;cx.globalAlpha=(.3+s.z*.6)*(still?1:.7+.3*Math.sin(performance.now()/700+s.y));cx.fillRect(x,y,s.z*2.2,s.z*2.2)});
  cx.globalAlpha=1;
  if(!still){
-  if(Math.random()<.02)spawn();
-  if(held&&--cool<=0){fire();cool=8}
-  rocks.forEach((k,i)=>{k.x+=k.dx;k.y+=k.dy;k.rot+=k.vr;
+  const l=lv(),fz=freeze>0,tb=turbo>0&&playing,now=performance.now();
+  if(Math.random()<.02+l*.004)spawn();
+  if(playing&&!over&&!ups.length&&Math.random()<.003)spawnUp();
+  if(held&&!over&&--cool<=0){fire();cool=tb?5:8}
+  if(fz)freeze--;if(tb)turbo--;if(inv>0)inv--;
+  rocks.forEach((k,i)=>{if(!fz){k.x+=k.dx;k.y+=k.dy;k.rot+=k.vr}
    if(k.x<-90||k.x>W+90||k.y<-90||k.y>H+90)k.dead=1;
+   if(playing&&!over&&inv<=0&&!k.dead&&Math.hypot(k.x-ship.x,k.y-ship.y)<k.r+12){k.dead=1;boom(ship.x,ship.y,'#ff5fc8');lives--;inv=90;hud();if(lives<=0){over=true;held=false;saveBest()}}
    cx.save();cx.translate(k.x,k.y);cx.rotate(k.rot);cx.beginPath();
    k.v.forEach((m,j)=>{const a=j/k.v.length*6.28;cx[j?'lineTo':'moveTo'](Math.cos(a)*k.r*m,Math.sin(a)*k.r*m)});
-   cx.closePath();cx.fillStyle='rgba(127,214,255,.09)';cx.fill();cx.strokeStyle='#7fd6ff';cx.lineWidth=2;cx.stroke();cx.restore()});
+   cx.closePath();cx.fillStyle=fz?'rgba(255,255,255,.16)':'rgba(127,214,255,.09)';cx.fill();cx.strokeStyle=tb?'hsl('+((now/6+i*40)%360)+',90%,65%)':fz?'#ffffff':'#7fd6ff';cx.lineWidth=2;cx.stroke();cx.restore()});
   shots.forEach(b=>{b.x+=b.dx;b.y+=b.dy;b.l--;
-   rocks.forEach(k=>{if(!k.dead&&!b.dead&&Math.hypot(k.x-b.x,k.y-b.y)<k.r){k.dead=b.dead=1;score++;$('score').textContent=score;boom(k.x,k.y,'#ffd36e');
-    if(k.r>(W<760?19:26))for(let i=0;i<2;i++){const c=rock(k.r*.55,k.x,k.y);rocks.push(c)}}});
-   cx.strokeStyle='#ff5fc8';cx.lineWidth=3;cx.beginPath();cx.moveTo(b.x,b.y);cx.lineTo(b.x-b.dx*1.6,b.y-b.dy*1.6);cx.stroke()});
+   rocks.forEach(k=>{if(!k.dead&&!b.dead&&Math.hypot(k.x-b.x,k.y-b.y)<k.r){k.dead=b.dead=1;score++;hud();boom(k.x,k.y,'#ffd36e');
+    if(k.r>(W<760?19:26))for(let i=0;i<2;i++){rocks.push(rock(k.r*.55,k.x,k.y))}}});
+   ups.forEach(u=>{if(!u.dead&&!b.dead&&Math.hypot(u.x-b.x,u.y-b.y)<u.r+5){u.dead=b.dead=1;freeze=300;boom(u.x,u.y,'#ffffff')}});
+   cx.strokeStyle=tb?'hsl('+((now/4+b.x)%360)+',95%,65%)':'#ff5fc8';cx.lineWidth=3;cx.beginPath();cx.moveTo(b.x,b.y);cx.lineTo(b.x-b.dx*1.6,b.y-b.dy*1.6);cx.stroke()});
+  ups.forEach(u=>{u.x+=u.dx;u.y+=u.dy;if(u.x<-40||u.x>W+40)u.dead=1;const p=1+.12*Math.sin(now/180);
+   cx.save();cx.translate(u.x,u.y);cx.strokeStyle='#ffd36e';cx.fillStyle='rgba(255,211,110,.18)';cx.lineWidth=2;cx.beginPath();cx.arc(0,0,u.r*p,0,6.28);cx.fill();cx.stroke();
+   for(let a=0;a<3;a++){cx.rotate(1.047);cx.beginPath();cx.moveTo(-u.r*.6,0);cx.lineTo(u.r*.6,0);cx.stroke()}cx.restore()});
   for(let i=rocks.length;i--;)if(rocks[i].dead)rocks.splice(i,1);
   for(let i=shots.length;i--;)if(shots[i].dead||shots[i].l<=0)shots.splice(i,1);
+  for(let i=ups.length;i--;)if(ups[i].dead)ups.splice(i,1);
   bits.forEach(p=>{p.x+=p.dx;p.y+=p.dy;p.l-=.03;cx.globalAlpha=Math.max(p.l,0);cx.fillStyle=p.c;cx.fillRect(p.x,p.y,3,3)});
   cx.globalAlpha=1;for(let i=bits.length;i--;)if(bits[i].l<=0)bits.splice(i,1);
-  if(mx){cx.save();cx.setLineDash([4,8]);cx.strokeStyle='rgba(236,233,255,.4)';cx.lineWidth=1.5;cx.beginPath();cx.moveTo(ship.x+Math.cos(aim)*26,ship.y+Math.sin(aim)*26);cx.lineTo(mx,my);cx.stroke();cx.setLineDash([]);cx.beginPath();cx.arc(mx,my,9,0,6.28);cx.stroke();cx.restore()}
-  // ship
-  cx.save();cx.translate(ship.x,ship.y);cx.rotate(aim+Math.PI/2);
-  cx.fillStyle='#ff5fc8';cx.beginPath();cx.moveTo(0,-18);cx.lineTo(13,14);cx.lineTo(0,8);cx.lineTo(-13,14);cx.closePath();cx.fill();
-  cx.fillStyle='#ffd36e';cx.beginPath();cx.moveTo(-5,11);cx.lineTo(0,18+Math.random()*10);cx.lineTo(5,11);cx.fill();cx.restore();
+  if(mx&&playing&&!over){cx.save();cx.setLineDash([4,8]);cx.strokeStyle='rgba(236,233,255,.4)';cx.lineWidth=1.5;cx.beginPath();cx.moveTo(ship.x+Math.cos(aim)*26,ship.y+Math.sin(aim)*26);cx.lineTo(mx,my);cx.stroke();cx.setLineDash([]);cx.beginPath();cx.arc(mx,my,9,0,6.28);cx.stroke();cx.restore()}
+  if(!(inv>0&&(inv>>2)%2)){cx.save();cx.translate(ship.x,ship.y);cx.rotate(aim+Math.PI/2);
+   cx.fillStyle='#ff5fc8';cx.beginPath();cx.moveTo(0,-18);cx.lineTo(13,14);cx.lineTo(0,8);cx.lineTo(-13,14);cx.closePath();cx.fill();
+   cx.fillStyle='#ffd36e';cx.beginPath();cx.moveTo(-5,11);cx.lineTo(0,18+Math.random()*10);cx.lineTo(5,11);cx.fill();cx.restore()}
+  if(fz)meter('TIME FREEZE',freeze/300,'#ffffff',100);
+  if(tb)meter('HYPERDRIVE',turbo/720,'#ffd36e',fz?124:100);
+  if(over){cx.save();cx.textAlign='center';cx.fillStyle='#ece9ff';cx.font='700 30px Inter,system-ui,sans-serif';cx.fillText('Game over',W/2,H*.4);
+   cx.font='400 17px Inter,system-ui,sans-serif';cx.fillText(score+' asteroids'+(score>0&&score>=best?' · new best!':''),W/2,H*.4+30);cx.fillText(coarse?'Tap to play again':'Click to play again',W/2,H*.4+58);cx.restore()}
  }
  requestAnimationFrame(frame)}
 new IntersectionObserver(e=>{run=e[0].isIntersecting}).observe(hero);
