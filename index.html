@@ -242,7 +242,10 @@ const projects=[
   b:['Django backend','Built for fun outside of coursework'],k:['Python','Django','CSS'],r:[['View repo','TechWebsite']]},
  {t:'Asteroid Blast',s:'2D space game in Unity',d:'A complete 2D Unity game, from design and animation to scripting, sound and effects.',
   b:['Rigidbody2D ship physics with thrusters and smooth rotation','Asteroid spawner plus a chase variant with different behaviour','Time-freeze power-up, pickups, score, lives and respawn','Event-driven architecture linking gameplay, UI, audio and VFX','Menus built with UI Toolkit; multiple levels and scenes'],
-  k:['Unity','C#','Input System','UI Toolkit'],r:[['View repo','Asteroid-Blast-Playable']]}
+  k:['Unity','C#','Input System','UI Toolkit'],r:[['View repo','Asteroid-Blast-Playable']]},
+ {t:'Treasure Isle',s:'Browser island digging game',d:'A browser game inspired by the classic Facebook island game, drawn entirely on an HTML canvas with no game libraries.',
+  b:['Isometric island with animated sea, palm trees and a sailboat','Energy that regenerates over time, even while the page is closed','Weighted loot tables, XP levels and quests','Upgrade shop, treasure maps and a collection book','Progress saved in the browser, ready for cloud accounts later'],
+  k:['JavaScript','HTML5 Canvas','CSS'],l:'https://kyran4.github.io/Isle_Of_Treasure/',r:[['View repo','Isle_Of_Treasure']]}
 ];
 const skills=['C#','.NET MAUI','ASP.NET Core','EF Core','SQL Server','SQLite','Unity','Python','Django','Razor Pages','Git','Azure Boards'];
 // --------------------------------------------
@@ -255,7 +258,7 @@ $('list').innerHTML=projects.map((p,i)=>`<button class="row" data-i="${i}"><div>
 // panel
 let last;
 const open=i=>{const p=projects[i];last=document.activeElement;
- $('pbody').innerHTML=`<h3 id="pt">${p.t}</h3><p>${p.d}</p><ul>${p.b.map(x=>`<li>${x}</li>`).join('')}</ul><div class="chips">${p.k.map(x=>`<span>${x}</span>`).join('')}</div>${(p.r||[]).map(([n,x])=>`<a class="btn f" href="https://github.com/${GH}/${x}" target="_blank" rel="noopener">${n}</a>`).join('')}`;
+ $('pbody').innerHTML=`<h3 id="pt">${p.t}</h3><p>${p.d}</p><ul>${p.b.map(x=>`<li>${x}</li>`).join('')}</ul><div class="chips">${p.k.map(x=>`<span>${x}</span>`).join('')}</div>${p.l?`<a class="btn f" href="${p.l}" target="_blank" rel="noopener">Play it live ↗</a>`:''}${(p.r||[]).map(([n,x])=>`<a class="btn f" href="https://github.com/${GH}/${x}" target="_blank" rel="noopener">${n}</a>`).join('')}`;
  $('panel').inert=false;document.body.classList.add('open');$('close').focus()};
 const shut=()=>{document.body.classList.remove('open');$('panel').inert=true;last&&last.focus()};
 $('list').addEventListener('click',e=>{const b=e.target.closest('.row');b&&open(b.dataset.i)});
