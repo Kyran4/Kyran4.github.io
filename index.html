@@ -236,7 +236,7 @@ const projects=[
   d:'Organisational software for mechanic workshops and customers. Built to streamline job logging, parts ordering and service history for smaller shops without access to professional tools. Developed as my Capstone project at Techtorium.',
   b:['Vehicle management','Service booking and logging','Parts management','Secure database management'],
   k:['Python','Django','Render','PostgreSQL','Bootstrap 5','Pytest','Git/GitHub','GitHub Actions'],
-  l:'https://garagelog-ryyg.onrender.com/'},
+  l:'https://garagelog-ryyg.onrender.com/',ll:'Open live app'},
  {t:'VehicleManager',s:'Technical assignment for CreditWorks',d:'A web app for managing vehicles and weight categories, built as a take-home assignment for CreditWorks.',
   b:['C# with ASP.NET Core and Razor Pages','Entity Framework Core with SQL Server'],k:['C#','ASP.NET Core','EF Core','SQL Server'],r:[['View repo','VehicleManager']]},
  {t:'CampusPulse',s:'Social app for a university, team lead',d:'Think Instagram for a university: a .NET MAUI app with a local API behind it, built by a team I led over two Agile sprints.',
@@ -251,7 +251,7 @@ const projects=[
   k:['Unity','C#','Input System','UI Toolkit'],r:[['View repo','Asteroid-Blast-Playable']]},
  {t:'Treasure Isle',s:'Browser island digging game',d:'A browser game inspired by the classic Facebook island game, drawn entirely on an HTML canvas with no game libraries.',
   b:['Isometric island with animated sea, palm trees and a sailboat','Energy that regenerates over time, even while the page is closed','Weighted loot tables, XP levels and quests','Upgrade shop, treasure maps and a collection book','Progress saved in the browser, ready for cloud accounts later'],
-  k:['JavaScript','HTML5 Canvas','CSS'],l:'https://kyran4.github.io/Isle_Of_Treasure/',r:[['View repo','Isle_Of_Treasure']]}
+  k:['JavaScript','HTML5 Canvas','CSS'],l:'https://kyran4.github.io/Isle_Of_Treasure/',ll:'Play it live',r:[['View repo','Isle_Of_Treasure']]}
 ];
 const skills=['C#','.NET MAUI','ASP.NET Core','EF Core','SQL Server','SQLite','Unity','Python','Django','Razor Pages','Git','Azure DevOps','SupaBase','MonsterASP'];
 // --------------------------------------------
@@ -264,7 +264,7 @@ $('list').innerHTML=projects.map((p,i)=>`<button class="row" data-i="${i}"><div>
 // panel
 let last;
 const open=i=>{const p=projects[i];last=document.activeElement;
- $('pbody').innerHTML=`<h3 id="pt">${p.t}</h3><p>${p.d}</p><ul>${p.b.map(x=>`<li>${x}</li>`).join('')}</ul><div class="chips">${p.k.map(x=>`<span>${x}</span>`).join('')}</div>${p.l?`<a class="btn f" href="${p.l}" target="_blank" rel="noopener">Play it live ↗</a>`:''}${(p.r||[]).map(([n,x])=>`<a class="btn f" href="https://github.com/${GH}/${x}" target="_blank" rel="noopener">${n}</a>`).join('')}`;
+ $('pbody').innerHTML=`<h3 id="pt">${p.t}</h3><p>${p.d}</p><ul>${p.b.map(x=>`<li>${x}</li>`).join('')}</ul><div class="chips">${p.k.map(x=>`<span>${x}</span>`).join('')}</div>${p.l?`<a class="btn f" href="${p.l}" target="_blank" rel="noopener">${p.ll||'Open live app'} ↗</a>`:''}${(p.r||[]).map(([n,x])=>`<a class="btn f" href="https://github.com/${GH}/${x}" target="_blank" rel="noopener">${n}</a>`).join('')}`;
  $('panel').inert=false;document.body.classList.add('open');$('close').focus()};
 const shut=()=>{document.body.classList.remove('open');$('panel').inert=true;last&&last.focus()};
 $('list').addEventListener('click',e=>{const b=e.target.closest('.row');b&&open(b.dataset.i)});
